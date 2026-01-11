@@ -68,3 +68,11 @@ GROUP BY cst.customer_key, cst.first_name, cst.last_name
 ORDER BY total_revenue DESC
 
 --Finding the ditrbution of sold items across countries
+SELECT 
+	cst.country,
+	SUM(sales.quantity) AS total_revenue
+FROM gold.fact_sales sales
+LEFT JOIN gold.dim_customers cst
+	ON cst.customer_key = sales.customer_key
+GROUP BY cst.country
+ORDER BY total_revenue DESC
