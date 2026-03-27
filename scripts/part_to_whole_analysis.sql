@@ -1,18 +1,19 @@
 /*
 ===============================================================================
-Data Segmentation Analysis
+Part-to-Whole Analysis
 ===============================================================================
 Purpose:
-    - To group data into meaningful categories for targeted insights.
-    - For customer segmentation, product categorization, or regional analysis.
+    - To compare performance or metrics across dimensions or time periods.
+    - To evaluate differences between categories.
+    - Useful for A/B testing or regional comparisons.
 
 SQL Functions Used:
-    - CASE: Defines custom segmentation logic.
-    - GROUP BY: Groups data into segments.
+    - SUM(), AVG(): Aggregates values for comparison.
+    - Window Functions: SUM() OVER() for total calculations.
 ===============================================================================
 */
 
---Segment products into cost ranges and count how many products fall into each segment
+-- Which categories contribute the most to overall sales?
 WITH category_sales AS (
 SELECT 
 	p.category,
